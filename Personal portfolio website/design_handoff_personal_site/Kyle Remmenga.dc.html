@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root { --accent: oklch(0.74 0.10 152); --rhythm: 1; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: oklch(0.185 0.008 152); }
+  body { -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid color-mix(in oklch, var(--accent) 35%, transparent); transition: border-color .25s ease, color .25s ease; }
+  a:hover { color: oklch(0.86 0.09 152); border-bottom-color: oklch(0.86 0.09 152); }
+  ::selection { background: color-mix(in oklch, var(--accent) 30%, transparent); }
+  @keyframes riseIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @media (max-width: 860px) {
+    [data-shell] { flex-direction: column !important; }
+    [data-rail] { position: static !important; height: auto !important; flex: 1 1 auto !important; border-right: 0 !important; border-bottom: 1px solid oklch(0.28 0.010 152); padding: 34px 28px 26px !important; gap: 26px !important; }
+    [data-rail] nav { flex-direction: row !important; flex-wrap: wrap; gap: 4px 22px !important; margin-top: 0 !important; }
+    [data-rail] > div:last-child { margin-top: 0 !important; }
+  }
+</style>
+</helmet>
+<div data-shell="1" style="min-height: 100vh; display: flex; align-items: stretch; background: oklch(0.185 0.008 152); color: oklch(0.93 0.006 152); font-family: Newsreader, Georgia, serif;">
+
+  <aside data-rail="1" style="flex: 0 1 300px; min-width: 232px; border-right: 1px solid oklch(0.28 0.010 152); padding: 56px 36px 40px; display: flex; flex-direction: column; gap: 40px; position: sticky; top: 0; align-self: flex-start; height: 100vh;">
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 19px; letter-spacing: -0.02em; line-height: 1.25;">Kyle<br>Remmenga</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--accent);">AI Engineer</div>
+    </div>
+
+    <nav style="display: flex; flex-direction: column; gap: 2px; margin-top: -8px;">
+      <sc-for list="{{ nav }}" as="item" hint-placeholder-count="5">
+        <button type="button" onClick="{{ item.go }}" style="{{ item.style }}" style-hover="color: oklch(0.93 0.006 152);">{{ item.label }}</button>
+      </sc-for>
+    </nav>
+
+    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 14px; font-size: 15px; line-height: 1.5;">
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <a href="mailto:kyleremmenga@gmail.com">kyleremmenga@gmail.com</a>
+        <a href="https://github.com/kyleRemmenga" target="_blank" rel="noopener">github.com/kyleRemmenga</a>
+        <a href="https://www.linkedin.com/in/kyle-remmenga" target="_blank" rel="noopener">linkedin.com/in/kyle-remmenga</a>
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.52 0.010 152);">Littleton, Colorado</div>
+    </div>
+  </aside>
+
+  <main style="flex: 1 1 360px; min-width: 0; padding: 0 clamp(32px, 7vw, 110px);">
+    <div style="max-width: 720px; padding: clamp(56px, 9vh, 120px) 0 120px;">
+
+      <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+        <div style="animation: riseIn .5s cubic-bezier(.2,.7,.3,1) both;">
+          <h1 style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: clamp(30px, 3.4vw, 48px); line-height: 1.14; letter-spacing: -0.035em; margin: 0 0 28px; text-wrap: balance;">Kyle Remmenga</h1>
+          <p style="font-size: 21px; line-height: 1.62; color: oklch(0.85 0.006 152); margin: 0 0 20px; text-wrap: pretty;">I live in Littleton, Colorado, and I'm a graduate student in computer science at the Colorado School of Mines. My work is in generative AI and natural language processing — retrieval systems, pulling information out of documents that were never organized for it, and the software built around those systems to make them usable.</p>
+          <p style="font-size: 21px; line-height: 1.62; color: oklch(0.72 0.008 152); margin: 0 0 64px; text-wrap: pretty;">This is just a place to keep track of what I've worked on.</p>
+
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: oklch(0.58 0.010 152); margin-bottom: 22px;">Where I am now</div>
+          <div style="display: flex; flex-direction: column; gap: 1px; border-top: 1px solid oklch(0.28 0.010 152);">
+            <div style="display: flex; flex-wrap: wrap; gap: 4px 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid oklch(0.26 0.010 152);">
+              <div style="flex: 1 1 240px; font-family: 'JetBrains Mono', monospace; font-size: 15px;">AI Engineer Intern</div>
+              <div style="flex: 1 1 180px; font-size: 17px; color: oklch(0.70 0.008 152);">Class VI Partners</div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: oklch(0.55 0.010 152);">2026 —</div>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 4px 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid oklch(0.26 0.010 152);">
+              <div style="flex: 1 1 240px; font-family: 'JetBrains Mono', monospace; font-size: 15px;">AI Engineer, Contract</div>
+              <div style="flex: 1 1 180px; font-size: 17px; color: oklch(0.70 0.008 152);">Colorado School of Mines</div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: oklch(0.55 0.010 152);">2026 —</div>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 4px 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid oklch(0.26 0.010 152);">
+              <div style="flex: 1 1 240px; font-family: 'JetBrains Mono', monospace; font-size: 15px;">M.S. Computer Science</div>
+              <div style="flex: 1 1 180px; font-size: 17px; color: oklch(0.70 0.008 152);">Colorado School of Mines</div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: oklch(0.55 0.010 152);">2025 —</div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isWork }}" hint-placeholder-val="{{ true }}">
+        <div style="animation: riseIn .5s cubic-bezier(.2,.7,.3,1) both;">
+          <h1 style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: clamp(30px, 4vw, 42px); line-height: 1.15; letter-spacing: -0.03em; margin: 0 0 18px;">Work</h1>
+          <p style="font-size: 20px; line-height: 1.6; color: oklch(0.72 0.008 152); margin: 0 0 64px; max-width: 60ch; text-wrap: pretty;">Where I've worked, and what I did there.</p>
+
+          <div style="display: flex; flex-direction: column; gap: 56px;">
+            <article style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; align-items: baseline; padding-bottom: 14px; border-bottom: 1px solid oklch(0.28 0.010 152);">
+                <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 21px; letter-spacing: -0.02em; margin: 0;">AI Engineer Intern</h2>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: oklch(0.58 0.010 152);">MAY 2026 — PRESENT</div>
+              </div>
+              <div style="font-size: 17px; font-style: italic; color: var(--accent);">Class VI Partners &nbsp;·&nbsp; Cherry Creek, CO</div>
+              <ul style="margin: 6px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 16px;">
+                <li style="font-size: 19px; line-height: 1.58; color: oklch(0.86 0.006 152); padding-left: 20px; border-left: 1px solid oklch(0.30 0.010 152); text-wrap: pretty;"><strong style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; letter-spacing: 0.01em; color: oklch(0.93 0.006 152); display: block; margin-bottom: 4px;">MCP Server &amp; Claude Skills Development</strong>Designed and built custom MCP (Model Context Protocol) servers and Claude Skills to extend AI agent capabilities into internal business workflows.</li>
+                <li style="font-size: 19px; line-height: 1.58; color: oklch(0.86 0.006 152); padding-left: 20px; border-left: 1px solid oklch(0.30 0.010 152); text-wrap: pretty;"><strong style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; letter-spacing: 0.01em; color: oklch(0.93 0.006 152); display: block; margin-bottom: 4px;">Third-Party Integration Workflows</strong>Created AI-driven workflows integrating third-party MCPs, including Salesforce and Fireflies, to automate cross-platform data retrieval and task execution.</li>
+                <li style="font-size: 19px; line-height: 1.58; color: oklch(0.86 0.006 152); padding-left: 20px; border-left: 1px solid oklch(0.30 0.010 152); text-wrap: pretty;"><strong style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; letter-spacing: 0.01em; color: oklch(0.93 0.006 152); display: block; margin-bottom: 4px;">Multi-Agent Research Environments</strong>Architected and ran multi-agent environments to autonomously conduct market research, coordinating agent roles and task delegation.</li>
+              </ul>
+            </article>
+
+            <article style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; align-items: baseline; padding-bottom: 14px; border-bottom: 1px solid oklch(0.28 0.010 152);">
+                <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 21px; letter-spacing: -0.02em; margin: 0;">AI Engineer (Contractor)</h2>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: oklch(0.58 0.010 152);">AUG 2026 — PRESENT</div>
+              </div>
+              <div style="font-size: 17px; font-style: italic; color: var(--accent);">Colorado School of Mines &nbsp;·&nbsp; Golden, CO</div>
+              <ul style="margin: 6px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 16px;">
+                <li style="font-size: 19px; line-height: 1.58; color: oklch(0.86 0.006 152); padding-left: 20px; border-left: 1px solid oklch(0.30 0.010 152); text-wrap: pretty;"><strong style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; letter-spacing: 0.01em; color: oklch(0.93 0.006 152); display: block; margin-bottom: 4px;">Independent RAG System Ownership</strong>Took over full ownership of the RAG system originally developed as Graduate Assistant, continuing development and maintenance under an independent contract.</li>
+                <li style="font-size: 19px; line-height: 1.58; color: oklch(0.86 0.006 152); padding-left: 20px; border-left: 1px solid oklch(0.30 0.010 152); text-wrap: pretty;"><strong style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; letter-spacing: 0.01em; color: oklch(0.93 0.006 152); display: block; margin-bottom: 4px;">Embedding &amp; Retrieval Optimization</strong>Reworked embedding strategy and chunking approach to improve retrieval relevance and reduce noise in downstream retrieval results.</li>
+                <li style="font-size: 19px; line-height: 1.58; color: oklch(0.86 0.006 152); padding-left: 20px; border-left: 1px solid oklch(0.30 0.010 152); text-wrap: pretty;"><strong style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; letter-spacing: 0.01em; color: oklch(0.93 0.006 152); display: block; margin-bottom: 4px;">Stakeholder Presentations</strong>Presented project progress, architecture decisions, and results to university stakeholders.</li>
+              </ul>
+            </article>
+
+            <article style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; align-items: baseline; padding-bottom: 14px; border-bottom: 1px solid oklch(0.28 0.010 152);">
+                <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 21px; letter-spacing: -0.02em; margin: 0;">Graduate Assistant — AI / Software Engineer</h2>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: oklch(0.58 0.010 152);">SEP 2025 — MAY 2026</div>
+              </div>
+              <div style="font-size: 17px; font-style: italic; color: var(--accent);">Colorado School of Mines &nbsp;·&nbsp; Golden, CO</div>
+              <ul style="margin: 6px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 16px;">
+                <li style="font-size: 19px; line-height: 1.58; color: oklch(0.86 0.006 152); padding-left: 20px; border-left: 1px solid oklch(0.30 0.010 152); text-wrap: pretty;"><strong style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; letter-spacing: 0.01em; color: oklch(0.93 0.006 152); display: block; margin-bottom: 4px;">Multi-Vector RAG System</strong>Built a retrieval-augmented generation (RAG) system with multi-vector indexing and query intent detection, improving composite retrieval scores up to 50% on true-positive lookups.</li>
+                <li style="font-size: 19px; line-height: 1.58; color: oklch(0.86 0.006 152); padding-left: 20px; border-left: 1px solid oklch(0.30 0.010 152); text-wrap: pretty;"><strong style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; letter-spacing: 0.01em; color: oklch(0.93 0.006 152); display: block; margin-bottom: 4px;">End-to-End Ingestion Pipeline</strong>Built end-to-end ingestion pipelines to parse unstructured web pages, PDFs, and historical documents, transforming raw content into chunked, embedded representations stored in vector and relational layers for semantic retrieval.</li>
+                <li style="font-size: 19px; line-height: 1.58; color: oklch(0.86 0.006 152); padding-left: 20px; border-left: 1px solid oklch(0.30 0.010 152); text-wrap: pretty;"><strong style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; letter-spacing: 0.01em; color: oklch(0.93 0.006 152); display: block; margin-bottom: 4px;">Systematic Pipeline Evaluation</strong>Iteratively tuned prompt chains and pipeline parameters through systematic evaluation, measuring retrieval precision and extraction accuracy to optimize end-to-end system performance.</li>
+                <li style="font-size: 19px; line-height: 1.58; color: oklch(0.86 0.006 152); padding-left: 20px; border-left: 1px solid oklch(0.30 0.010 152); text-wrap: pretty;"><strong style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; letter-spacing: 0.01em; color: oklch(0.93 0.006 152); display: block; margin-bottom: 4px;">AI-Assisted Development</strong>Developed with Claude Code as a primary engineering tool for iterating on pipeline logic and system architecture.</li>
+              </ul>
+            </article>
+
+            <article style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; align-items: baseline; padding-bottom: 14px; border-bottom: 1px solid oklch(0.28 0.010 152);">
+                <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 21px; letter-spacing: -0.02em; margin: 0;">Machine Learning Researcher</h2>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: oklch(0.58 0.010 152);">JAN 2025 — MAY 2025</div>
+              </div>
+              <div style="font-size: 17px; font-style: italic; color: var(--accent);">Colorado Mesa University &nbsp;·&nbsp; Grand Junction, CO</div>
+              <ul style="margin: 6px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 16px;">
+                <li style="font-size: 19px; line-height: 1.58; color: oklch(0.86 0.006 152); padding-left: 20px; border-left: 1px solid oklch(0.30 0.010 152); text-wrap: pretty;"><strong style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; letter-spacing: 0.01em; color: oklch(0.93 0.006 152); display: block; margin-bottom: 4px;">Transformer Model Development</strong>Designed and trained transformer-based models in PyTorch with CUDA acceleration, working directly with attention mechanisms, tokenization, and sequence modeling.</li>
+                <li style="font-size: 19px; line-height: 1.58; color: oklch(0.86 0.006 152); padding-left: 20px; border-left: 1px solid oklch(0.30 0.010 152); text-wrap: pretty;"><strong style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; letter-spacing: 0.01em; color: oklch(0.93 0.006 152); display: block; margin-bottom: 4px;">LLM Data Pipeline</strong>Built data pipelines to preprocess and structure LLM-generated text for training workflows.</li>
+                <li style="font-size: 19px; line-height: 1.58; color: oklch(0.86 0.006 152); padding-left: 20px; border-left: 1px solid oklch(0.30 0.010 152); text-wrap: pretty;"><strong style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; letter-spacing: 0.01em; color: oklch(0.93 0.006 152); display: block; margin-bottom: 4px;">Model Evaluation &amp; Ablation</strong>Evaluated model performance through validation metrics, ablation studies, and comparative baselines to measure generalization.</li>
+              </ul>
+            </article>
+
+            <article style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; align-items: baseline; padding-bottom: 14px; border-bottom: 1px solid oklch(0.28 0.010 152);">
+                <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 21px; letter-spacing: -0.02em; margin: 0;">Cyber Security Researcher</h2>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: oklch(0.58 0.010 152);">SUMMER 2024</div>
+              </div>
+              <div style="font-size: 17px; font-style: italic; color: var(--accent);">Colorado Mesa University &nbsp;·&nbsp; Grand Junction, CO</div>
+              <ul style="margin: 6px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 16px;">
+                <li style="font-size: 19px; line-height: 1.58; color: oklch(0.86 0.006 152); padding-left: 20px; border-left: 1px solid oklch(0.30 0.010 152); text-wrap: pretty;"><strong style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; letter-spacing: 0.01em; color: oklch(0.93 0.006 152); display: block; margin-bottom: 4px;">Cryptographic Algorithm Design</strong>Designed and implemented a novel variation of a cryptographic hashing algorithm, collaborating with research advisors to align with established cryptography standards.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isProjects }}" hint-placeholder-val="{{ true }}">
+        <div style="animation: riseIn .5s cubic-bezier(.2,.7,.3,1) both;">
+          <h1 style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: clamp(30px, 4vw, 42px); line-height: 1.15; letter-spacing: -0.03em; margin: 0 0 18px;">Projects</h1>
+          <p style="font-size: 20px; line-height: 1.6; color: oklch(0.72 0.008 152); margin: 0 0 64px; max-width: 60ch; text-wrap: pretty;">A few things I've built on my own time.</p>
+
+          <div style="display: flex; flex-direction: column; gap: 1px;">
+            <div style="padding: 30px 0; border-top: 1px solid oklch(0.28 0.010 152); display: flex; flex-wrap: wrap; gap: 10px 32px;">
+              <div style="flex: 0 0 44px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); padding-top: 6px;">01</div>
+              <div style="flex: 1 1 380px; min-width: 0;">
+                <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 20px; letter-spacing: -0.02em; margin: 0 0 10px;">Stars Without Number character generator</h2>
+                <p style="font-size: 19px; line-height: 1.58; color: oklch(0.80 0.006 152); margin: 0 0 12px; text-wrap: pretty;">A Python generator for the Stars Without Number tabletop RPG, built to make NPCs more interesting than what I was coming up with on my own. It follows the core rulebook's character creation steps and the Codex of the Black Sun magic system: 14 classes, 44 backgrounds, 52 foci, four spell traditions, six psychic disciplines, and an equipment system across tech levels 0 through 5. You can generate a batch of options to one file and pick your favorite.</p>
+                <p style="font-family: 'JetBrains Mono', monospace; font-size: 13px; margin: 0;"><a href="https://github.com/kyleRemmenga/swn_character_generator" target="_blank" rel="noopener">github.com/kyleRemmenga/swn_character_generator</a></p>
+              </div>
+            </div>
+            <div style="padding: 30px 0; border-top: 1px solid oklch(0.28 0.010 152); display: flex; flex-wrap: wrap; gap: 10px 32px;">
+              <div style="flex: 0 0 44px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); padding-top: 6px;">02</div>
+              <div style="flex: 1 1 380px; min-width: 0;">
+                <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 20px; letter-spacing: -0.02em; margin: 0 0 10px;">GPT from scratch</h2>
+                <p style="font-size: 19px; line-height: 1.58; color: oklch(0.80 0.006 152); margin: 0; text-wrap: pretty;">Built a GPT-style language model from scratch to demonstrate transformer internals.</p>
+              </div>
+            </div>
+            <div style="padding: 30px 0; border-top: 1px solid oklch(0.28 0.010 152); display: flex; flex-wrap: wrap; gap: 10px 32px;">
+              <div style="flex: 0 0 44px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); padding-top: 6px;">03</div>
+              <div style="flex: 1 1 380px; min-width: 0;">
+                <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 20px; letter-spacing: -0.02em; margin: 0 0 10px;">Live parking availability</h2>
+                <p style="font-size: 19px; line-height: 1.58; color: oklch(0.80 0.006 152); margin: 0; text-wrap: pretty;">Created a real-time parking lot availability system using deep learning on live camera feeds.</p>
+              </div>
+            </div>
+            <div style="padding: 30px 0; border-top: 1px solid oklch(0.28 0.010 152); border-bottom: 1px solid oklch(0.28 0.010 152); display: flex; flex-wrap: wrap; gap: 10px 32px;">
+              <div style="flex: 0 0 44px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); padding-top: 6px;">04</div>
+              <div style="flex: 1 1 380px; min-width: 0;">
+                <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 20px; letter-spacing: -0.02em; margin: 0 0 10px;">Subset checksum</h2>
+                <p style="font-size: 19px; line-height: 1.58; color: oklch(0.80 0.006 152); margin: 0; text-wrap: pretty;">Developed a subset checksum using Lagrange polynomial interpolation for partial data integrity verification.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: oklch(0.58 0.010 152); margin: 72px 0 24px;">Technical Skills</div>
+          <div style="display: flex; flex-direction: column; gap: 26px;">
+            <div style="display: flex; flex-wrap: wrap; gap: 8px 24px;">
+              <div style="flex: 0 0 130px; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.62 0.010 152); padding-top: 5px;">Languages</div>
+              <div style="flex: 1 1 320px; display: flex; flex-wrap: wrap; gap: 8px;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 5px 11px; border: 1px solid oklch(0.31 0.012 152); border-radius: 2px; color: oklch(0.88 0.006 152);">Python</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 5px 11px; border: 1px solid oklch(0.31 0.012 152); border-radius: 2px; color: oklch(0.88 0.006 152);">C++</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 5px 11px; border: 1px solid oklch(0.31 0.012 152); border-radius: 2px; color: oklch(0.88 0.006 152);">CUDA</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 5px 11px; border: 1px solid oklch(0.31 0.012 152); border-radius: 2px; color: oklch(0.88 0.006 152);">SQL</span>
+              </div>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px 24px;">
+              <div style="flex: 0 0 130px; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.62 0.010 152); padding-top: 5px;">ML / AI</div>
+              <div style="flex: 1 1 320px; display: flex; flex-wrap: wrap; gap: 8px;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 5px 11px; border: 1px solid oklch(0.31 0.012 152); border-radius: 2px; color: oklch(0.88 0.006 152);">PyTorch</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 5px 11px; border: 1px solid oklch(0.31 0.012 152); border-radius: 2px; color: oklch(0.88 0.006 152);">Transformers</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 5px 11px; border: 1px solid oklch(0.31 0.012 152); border-radius: 2px; color: oklch(0.88 0.006 152);">RAG</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 5px 11px; border: 1px solid oklch(0.31 0.012 152); border-radius: 2px; color: oklch(0.88 0.006 152);">NLP</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 5px 11px; border: 1px solid oklch(0.31 0.012 152); border-radius: 2px; color: oklch(0.88 0.006 152);">NER</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 5px 11px; border: 1px solid oklch(0.31 0.012 152); border-radius: 2px; color: oklch(0.88 0.006 152);">OCR</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 5px 11px; border: 1px solid oklch(0.31 0.012 152); border-radius: 2px; color: oklch(0.88 0.006 152);">Embeddings</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 5px 11px; border: 1px solid oklch(0.31 0.012 152); border-radius: 2px; color: oklch(0.88 0.006 152);">Vector Search</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 5px 11px; border: 1px solid oklch(0.31 0.012 152); border-radius: 2px; color: oklch(0.88 0.006 152);">LlamaIndex</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 5px 11px; border: 1px solid oklch(0.31 0.012 152); border-radius: 2px; color: oklch(0.88 0.006 152);">OpenAI API</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 5px 11px; border: 1px solid oklch(0.31 0.012 152); border-radius: 2px; color: oklch(0.88 0.006 152);">Claude API</span>
+              </div>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px 24px;">
+              <div style="flex: 0 0 130px; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.62 0.010 152); padding-top: 5px;">Infrastructure</div>
+              <div style="flex: 1 1 320px; display: flex; flex-wrap: wrap; gap: 8px;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 5px 11px; border: 1px solid oklch(0.31 0.012 152); border-radius: 2px; color: oklch(0.88 0.006 152);">AWS (S3, EC2, API Gateway)</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 5px 11px; border: 1px solid oklch(0.31 0.012 152); border-radius: 2px; color: oklch(0.88 0.006 152);">Docker</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 5px 11px; border: 1px solid oklch(0.31 0.012 152); border-radius: 2px; color: oklch(0.88 0.006 152);">Supabase</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 5px 11px; border: 1px solid oklch(0.31 0.012 152); border-radius: 2px; color: oklch(0.88 0.006 152);">Vercel</span>
+              </div>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px 24px;">
+              <div style="flex: 0 0 130px; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.62 0.010 152); padding-top: 5px;">Tools</div>
+              <div style="flex: 1 1 320px; display: flex; flex-wrap: wrap; gap: 8px;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 5px 11px; border: 1px solid oklch(0.31 0.012 152); border-radius: 2px; color: oklch(0.88 0.006 152);">Git</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 5px 11px; border: 1px solid oklch(0.31 0.012 152); border-radius: 2px; color: oklch(0.88 0.006 152);">Claude Code</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ true }}">
+        <div style="animation: riseIn .5s cubic-bezier(.2,.7,.3,1) both;">
+          <h1 style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: clamp(30px, 4vw, 42px); line-height: 1.15; letter-spacing: -0.03em; margin: 0 0 32px;">About</h1>
+          <p style="font-size: 21px; line-height: 1.62; color: oklch(0.86 0.006 152); margin: 0 0 20px; max-width: 62ch; text-wrap: pretty;">I grew up in Colorado and went to Colorado Mesa University in Grand Junction for my undergrad. I'm now in Littleton, finishing a master's in computer science at the Colorado School of Mines.</p>
+          <p style="font-size: 21px; line-height: 1.62; color: oklch(0.78 0.008 152); margin: 0 0 20px; max-width: 62ch; text-wrap: pretty;">Most of what I do day to day is retrieval-augmented generation and information extraction — parsing web pages, PDFs, and old documents, then making them answerable. Before that I trained transformer models in PyTorch and spent a summer working on a variation of a cryptographic hashing algorithm.</p>
+          <p style="font-size: 21px; line-height: 1.62; color: oklch(0.78 0.008 152); margin: 0 0 20px; max-width: 62ch; text-wrap: pretty;">A retrieval pipeline on its own isn't much use to anyone, so a lot of my time goes to the software around it — the interfaces, the features, the things that turn a working pipeline into something people can actually sit down and use. I also build small tools for myself whenever something in my own workflow is annoying enough to fix.</p>
+          <p style="font-size: 21px; line-height: 1.62; color: oklch(0.78 0.008 152); margin: 0 0 72px; max-width: 62ch; text-wrap: pretty;">What I've found I enjoy most is the measuring part: figuring out whether a change actually made the system better, rather than trusting that it did.</p>
+
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: oklch(0.58 0.010 152); margin-bottom: 24px;">Education</div>
+          <div style="display: flex; flex-direction: column; gap: 34px;">
+            <div style="padding-top: 24px; border-top: 1px solid oklch(0.28 0.010 152);">
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 20px; align-items: baseline; margin-bottom: 10px;">
+                <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 19px; letter-spacing: -0.02em; margin: 0;">M.S. Computer Science</h2>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: oklch(0.58 0.010 152);">AUG 2025 — PRESENT</div>
+              </div>
+              <div style="font-size: 17px; font-style: italic; color: var(--accent); margin-bottom: 12px;">Colorado School of Mines &nbsp;·&nbsp; Golden, CO</div>
+              <p style="font-size: 19px; line-height: 1.58; color: oklch(0.80 0.006 152); margin: 0; max-width: 60ch; text-wrap: pretty;">Focus: generative AI, agentic systems, retrieval-augmented generation, and information extraction from unstructured sources.</p>
+            </div>
+            <div style="padding-top: 24px; border-top: 1px solid oklch(0.28 0.010 152);">
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 20px; align-items: baseline; margin-bottom: 10px;">
+                <h2 style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 19px; letter-spacing: -0.02em; margin: 0;">B.S. Computer Science</h2>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: oklch(0.58 0.010 152);">AUG 2020 — MAY 2025</div>
+              </div>
+              <div style="font-size: 17px; font-style: italic; color: var(--accent); margin-bottom: 12px;">Colorado Mesa University &nbsp;·&nbsp; Grand Junction, CO</div>
+              <p style="font-size: 19px; line-height: 1.58; color: oklch(0.80 0.006 152); margin: 0; max-width: 60ch; text-wrap: pretty;">Minor in Mathematics. Summa Cum Laude.</p>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isContact }}" hint-placeholder-val="{{ true }}">
+        <div style="animation: riseIn .5s cubic-bezier(.2,.7,.3,1) both;">
+          <h1 style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: clamp(30px, 4vw, 42px); line-height: 1.15; letter-spacing: -0.03em; margin: 0 0 18px;">Contact</h1>
+          <p style="font-size: 21px; line-height: 1.62; color: oklch(0.80 0.008 152); margin: 0 0 56px; max-width: 56ch; text-wrap: pretty;">Email is the best way to reach me.</p>
+
+          <div style="display: flex; flex-direction: column; gap: 1px;">
+            <div style="display: flex; flex-wrap: wrap; gap: 6px 28px; align-items: baseline; padding: 22px 0; border-top: 1px solid oklch(0.28 0.010 152);">
+              <div style="flex: 0 0 120px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: oklch(0.58 0.010 152);">Email</div>
+              <div style="flex: 1 1 260px; font-size: 20px;"><a href="mailto:kyleremmenga@gmail.com">kyleremmenga@gmail.com</a></div>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px 28px; align-items: baseline; padding: 22px 0; border-top: 1px solid oklch(0.28 0.010 152);">
+              <div style="flex: 0 0 120px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: oklch(0.58 0.010 152);">GitHub</div>
+              <div style="flex: 1 1 260px; font-size: 20px;"><a href="https://github.com/kyleRemmenga" target="_blank" rel="noopener">kyleRemmenga</a></div>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px 28px; align-items: baseline; padding: 22px 0; border-top: 1px solid oklch(0.28 0.010 152);">
+              <div style="flex: 0 0 120px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: oklch(0.58 0.010 152);">LinkedIn</div>
+              <div style="flex: 1 1 260px; font-size: 20px;"><a href="https://www.linkedin.com/in/kyle-remmenga" target="_blank" rel="noopener">Kyle Remmenga</a></div>
+            </div>
+            <sc-if value="{{ showPhone }}" hint-placeholder-val="{{ false }}">
+              <div style="display: flex; flex-wrap: wrap; gap: 6px 28px; align-items: baseline; padding: 22px 0; border-top: 1px solid oklch(0.28 0.010 152);">
+                <div style="flex: 0 0 120px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: oklch(0.58 0.010 152);">Phone</div>
+                <div style="flex: 1 1 260px; font-size: 20px;"><a href="tel:+19702707448">+1 970-270-7448</a></div>
+              </div>
+            </sc-if>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px 28px; align-items: baseline; padding: 22px 0; border-top: 1px solid oklch(0.28 0.010 152); border-bottom: 1px solid oklch(0.28 0.010 152);">
+              <div style="flex: 0 0 120px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: oklch(0.58 0.010 152);">Located</div>
+              <div style="flex: 1 1 260px; font-size: 20px; color: oklch(0.82 0.006 152);">Littleton, Colorado</div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+    </div>
+  </main>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;oklch(0.74 0.10 152)&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;oklch(0.74 0.10 152)&quot;,&quot;oklch(0.76 0.10 62)&quot;,&quot;oklch(0.75 0.11 250)&quot;,&quot;oklch(0.80 0.02 152)&quot;],&quot;section&quot;:&quot;Theme&quot;},&quot;showPhone&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Contact&quot;}}">
+const PAGES = ["home", "work", "projects", "about", "contact"];
+const LABELS = { home: "Home", work: "Work", projects: "Projects", about: "About", contact: "Contact" };
+
+class Component extends DCLogic {
+  state = { page: "home" };
+
+  componentDidMount() { this.applyTheme(); }
+  componentDidUpdate() { this.applyTheme(); }
+
+  applyTheme() {
+    const root = document.documentElement;
+    root.style.setProperty("--accent", this.props.accent ?? "oklch(0.74 0.10 152)");
+  }
+
+  go(page) {
+    this.setState({ page }, () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  }
+
+  renderVals() {
+    const page = this.state.page;
+    const base = "appearance: none; background: none; border: 0; text-align: left; cursor: pointer; padding: 7px 0; font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: -0.01em; transition: color .22s ease;";
+    return {
+      nav: PAGES.map(p => ({
+        label: LABELS[p],
+        go: () => this.go(p),
+        style: base + (p === page
+          ? " color: var(--accent, oklch(0.74 0.10 152));"
+          : " color: oklch(0.62 0.010 152);")
+      })),
+      isHome: page === "home",
+      isWork: page === "work",
+      isProjects: page === "projects",
+      isAbout: page === "about",
+      isContact: page === "contact",
+      showPhone: this.props.showPhone ?? false
+    };
+  }
+}
+
+</script>
+</body>
+</html>
