@@ -75,7 +75,17 @@ A check that could not have failed is not a check.
 
 Link to your `verification/` folder.
 
-*Your answer here.*
+I fetched the live URL directly with `curl -sv https://kyleremmenga.github.io/`
+and confirmed a `200` response with the actual page HTML in the body, not just
+a browser telling me it looked fine. I also took a browser screenshot of the
+live URL with the address bar visible. Both are in [`verification/`](verification/):
+`fetch.txt` (the raw curl output) and `screenshot.png`.
+
+What would have made this fail: if the repo had been named anything other than
+`kyleremmenga.github.io`, or if `index.html` had ended up nested in a subfolder
+instead of the repo root, the fetch would have come back with a 404 instead of
+the page — that's a check that could actually catch a real mistake, not one
+that was guaranteed to pass.
 
 ---
 
@@ -86,4 +96,11 @@ fully understand.
 
 What would you do next, and how would you find out?
 
-*Your answer here.*
+The site has a single responsive breakpoint at 860px — below it, the left rail
+is supposed to collapse from a sticky sidebar into a static header with the
+nav running horizontally. I wrote that CSS against the spec, but I haven't
+actually opened the site on a phone or narrowed a browser window to check it.
+I don't know if the nav wraps cleanly, whether the touch targets are big
+enough, or whether anything overlaps at in-between widths. Next step is to
+open the live site on my phone and in a resized desktop browser and see
+where it breaks, then fix whatever doesn't hold up.

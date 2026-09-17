@@ -1,0 +1,173 @@
+*   Trying 185.199.110.153:443...
+* Connected to kyleremmenga.github.io (185.199.110.153) port 443 (#0)
+* ALPN, offering h2
+* ALPN, offering http/1.1
+*  CAfile: /etc/ssl/certs/ca-certificates.crt
+*  CApath: /etc/ssl/certs
+* TLSv1.0 (OUT), TLS header, Certificate Status (22):
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+} [512 bytes data]
+* TLSv1.2 (IN), TLS header, Certificate Status (22):
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+{ [122 bytes data]
+* TLSv1.2 (IN), TLS header, Finished (20):
+{ [5 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8):
+{ [19 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Certificate (11):
+{ [4152 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, CERT verify (15):
+{ [264 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Finished (20):
+{ [36 bytes data]
+* TLSv1.2 (OUT), TLS header, Finished (20):
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1):
+} [1 bytes data]
+* TLSv1.2 (OUT), TLS header, Supplemental data (23):
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Finished (20):
+} [36 bytes data]
+* SSL connection using TLSv1.3 / TLS_AES_128_GCM_SHA256
+* ALPN, server accepted to use h2
+* Server certificate:
+*  subject: CN=*.github.io
+*  start date: Aug  2 23:38:02 2026 GMT
+*  expire date: Oct 31 23:38:01 2026 GMT
+*  subjectAltName: host "kyleremmenga.github.io" matched cert's "*.github.io"
+*  issuer: C=US; O=Let's Encrypt; CN=YR1
+*  SSL certificate verify ok.
+* Using HTTP2, server supports multiplexing
+* Connection state changed (HTTP/2 confirmed)
+* Copying HTTP/2 data in stream buffer to connection buffer after upgrade: len=0
+* TLSv1.2 (OUT), TLS header, Supplemental data (23):
+} [5 bytes data]
+* TLSv1.2 (OUT), TLS header, Supplemental data (23):
+} [5 bytes data]
+* TLSv1.2 (OUT), TLS header, Supplemental data (23):
+} [5 bytes data]
+* Using Stream ID: 1 (easy handle 0x556e0ec0aa90)
+* TLSv1.2 (OUT), TLS header, Supplemental data (23):
+} [5 bytes data]
+> GET / HTTP/2
+> Host: kyleremmenga.github.io
+> user-agent: curl/7.81.0
+> accept: */*
+> 
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+{ [193 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* TLSv1.2 (OUT), TLS header, Supplemental data (23):
+} [5 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+< HTTP/2 200 
+< server: GitHub.com
+< content-type: text/html; charset=utf-8
+< last-modified: Thu, 17 Sep 2026 18:44:12 GMT
+< access-control-allow-origin: *
+< strict-transport-security: max-age=31556952
+< etag: "6aac34fc-b7f"
+< expires: Thu, 17 Sep 2026 19:08:51 GMT
+< cache-control: max-age=600
+< x-proxy-cache: MISS
+< x-github-request-id: 9016:150248:167B5EC:18BEF84:6AAC386A
+< x-github-edge-region: iad
+< accept-ranges: bytes
+< age: 61
+< date: Thu, 17 Sep 2026 18:59:52 GMT
+< via: 1.1 varnish
+< x-served-by: cache-den-kden1300063-DEN
+< x-cache: HIT
+< x-cache-hits: 0
+< x-timer: S1789671592.193430,VS0,VE1
+< vary: Accept-Encoding
+< x-fastly-request-id: c5437beb95e556267b562bfd3754ae66df62b45a
+< content-length: 2943
+< 
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+{ [5 bytes data]
+* Connection #0 to host kyleremmenga.github.io left intact
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kyle Remmenga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="rail">
+      <div class="rail-name">
+        <div class="rail-name-text">Kyle<br>Remmenga</div>
+        <div class="rail-role">AI Engineer</div>
+      </div>
+
+      <nav>
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="work.html">Work</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="rail-contact">
+        <div class="rail-contact-links">
+          <a href="mailto:kyleremmenga@gmail.com">kyleremmenga@gmail.com</a>
+          <a href="https://github.com/kyleRemmenga" target="_blank" rel="noopener">github.com/kyleRemmenga</a>
+          <a href="https://www.linkedin.com/in/kyle-remmenga-61690029b" target="_blank" rel="noopener">linkedin.com/in/kyle-remmenga</a>
+        </div>
+        <div class="rail-location">Littleton, Colorado</div>
+      </div>
+    </aside>
+
+    <main>
+      <div class="content-inner">
+        <h1 class="page-title">Kyle Remmenga</h1>
+        <p class="lead" style="color: oklch(0.85 0.006 152);">I live in Littleton, Colorado, and I'm a graduate student in computer science at the Colorado School of Mines. My work is in generative AI and natural language processing — retrieval systems, pulling information out of documents that were never organized for it, and the software built around those systems to make them usable.</p>
+        <p class="lead" style="color: var(--intro); margin-bottom: 64px;">This is just a place to keep track of what I've worked on.</p>
+
+        <div class="eyebrow">Where I am now</div>
+        <div class="now-list">
+          <div class="now-row">
+            <div class="now-role">AI Engineer Intern</div>
+            <div class="now-org">Class VI Partners</div>
+            <div class="now-year">2026 —</div>
+          </div>
+          <div class="now-row">
+            <div class="now-role">AI Engineer</div>
+            <div class="now-org">Mines, Petroleum Engineering</div>
+            <div class="now-year">2026 —</div>
+          </div>
+          <div class="now-row">
+            <div class="now-role">M.S. Computer Science</div>
+            <div class="now-org">Colorado School of Mines</div>
+            <div class="now-year">2025 — 2026</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
