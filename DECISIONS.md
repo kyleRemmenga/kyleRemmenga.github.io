@@ -57,12 +57,7 @@ If it genuinely never happened, say so plainly, and then say what you would have
 check in order to notice. Being honest here costs you far less than a story you cannot
 defend when you record your video.
 
-While putting together the design in Claude, the agent kept steering the copy and
-layout toward something that read like an ad for my contracting availability —
-pitch-style language, a "hire me" framing. I didn't want that; this is meant to
-be a personal page, not a sales page. I overruled it and had it rewrite the
-content in a plainer, more understated voice with no marketing language and no
-calls to action, which is what the handoff spec and the final site both reflect.
+While designing the look and feel of my page in Claude design, Claude kept trying to steer this project to read more like a personal advertisement for myself. I had given design my resume and details from my LinkedIn, which contains information about contracting work that I have done, so I think that Claude felt a personal advertisement was more in line with what I was going for. After several corrections I just had to specify verbatim what I wanted parts of the website to say.
 
 ---
 
