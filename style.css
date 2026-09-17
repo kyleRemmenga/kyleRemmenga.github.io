@@ -1,34 +1,573 @@
-/* A deliberately small starting point.
-   It exists to prove one thing: this file is loading.
-   If you can see spacing and a readable line length, the path in index.html works.
-
-   Delete all of it whenever you want. */
+/* Kyle Remmenga — personal site
+   Design tokens transcribed from the handoff spec; hue 152 throughout. */
 
 :root {
-  /* Makes the page follow the reader's light or dark mode setting, for free. */
-  color-scheme: light dark;
+  color-scheme: dark;
+
+  --accent: oklch(0.74 0.10 152);
+  --accent-hover: oklch(0.86 0.09 152);
+
+  --bg: oklch(0.185 0.008 152);
+  --heading: oklch(0.93 0.006 152);
+  --body: oklch(0.86 0.006 152);
+  --body-secondary: oklch(0.80 0.006 152);
+  --body-secondary-2: oklch(0.78 0.008 152);
+  --intro: oklch(0.72 0.008 152);
+  --meta: oklch(0.58 0.010 152);
+  --skill-label: oklch(0.62 0.010 152);
+  --faint: oklch(0.52 0.010 152);
+  --rule: oklch(0.28 0.010 152);
+  --rule-secondary: oklch(0.26 0.010 152);
+  --chip-border: oklch(0.31 0.012 152);
+  --bullet-rule: oklch(0.30 0.010 152);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
 }
 
 body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: Newsreader, Georgia, serif;
+  color: var(--heading);
+  -webkit-font-smoothing: antialiased;
+}
 
-  /* 65ch caps the line at about 65 characters. Long lines are genuinely hard
-     to read, and this single rule does more for legibility than anything else
-     in this file. */
-  max-width: 65ch;
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklch, var(--accent) 35%, transparent);
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
 
-  margin: 0 auto;
-  padding: 4rem 1.5rem;
+a:hover {
+  color: var(--accent-hover);
+  border-bottom-color: var(--accent-hover);
+}
+
+::selection {
+  background: color-mix(in oklch, var(--accent) 30%, transparent);
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Shell */
+
+.shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  background: var(--bg);
+  color: var(--heading);
+}
+
+/* Left rail */
+
+.rail {
+  flex: 0 1 300px;
+  min-width: 232px;
+  border-right: 1px solid var(--rule);
+  padding: 56px 36px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  height: 100vh;
+}
+
+.rail-name {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rail-name-text {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.rail-role {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.rail nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: -8px;
+}
+
+.rail nav a {
+  appearance: none;
+  background: none;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  padding: 7px 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  transition: color 0.22s ease;
+  color: oklch(0.62 0.010 152);
+}
+
+.rail nav a:hover {
+  color: var(--heading);
+}
+
+.rail nav a[aria-current="page"] {
+  color: var(--accent);
+}
+
+.rail-contact {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.rail-contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rail-location {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+/* Content column */
+
+main {
+  flex: 1 1 360px;
+  min-width: 0;
+  padding: 0 clamp(32px, 7vw, 110px);
+}
+
+.content-inner {
+  max-width: 720px;
+  padding: clamp(56px, 9vh, 120px) 0 120px;
+  animation: riseIn 0.5s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+.page-title {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 500;
+  font-size: clamp(30px, 3.4vw, 48px);
+  line-height: 1.14;
+  letter-spacing: -0.035em;
+  margin: 0 0 28px;
+  text-wrap: balance;
+}
+
+.section-title {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 500;
+  font-size: clamp(30px, 4vw, 42px);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin: 0 0 18px;
+}
+
+.lead {
+  font-size: 21px;
+  line-height: 1.62;
+  margin: 0 0 20px;
+  text-wrap: pretty;
+}
+
+.section-intro {
+  font-size: 20px;
   line-height: 1.6;
-  font-size: 1.125rem;
+  color: var(--intro);
+  margin: 0 0 64px;
+  max-width: 60ch;
+  text-wrap: pretty;
 }
 
-h1 {
-  font-size: 3rem;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
+.eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--meta);
+  margin-bottom: 22px;
 }
 
-p {
-  margin-bottom: 1.5rem;
+/* Home: "where I am now" list */
+
+.now-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  border-top: 1px solid var(--rule);
+}
+
+.now-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  align-items: baseline;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule-secondary);
+}
+
+.now-role {
+  flex: 1 1 240px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 15px;
+}
+
+.now-org {
+  flex: 1 1 180px;
+  font-size: 17px;
+  color: oklch(0.70 0.008 152);
+}
+
+.now-year {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: oklch(0.55 0.010 152);
+}
+
+/* Work page */
+
+.jobs {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.job {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.job-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 24px;
+  align-items: baseline;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.job-title {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 500;
+  font-size: 21px;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.job-date {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--meta);
+}
+
+.job-employer {
+  font-size: 17px;
+  font-style: italic;
+  color: var(--accent);
+}
+
+.job-subcontract {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--meta);
+  margin-top: -6px;
+}
+
+.job ul {
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.job li {
+  font-size: 19px;
+  line-height: 1.58;
+  color: var(--body);
+  padding-left: 20px;
+  border-left: 1px solid var(--bullet-rule);
+  text-wrap: pretty;
+}
+
+.job li strong {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--heading);
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Projects page */
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.project-row {
+  padding: 30px 0;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 32px;
+}
+
+.project-row:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.project-num {
+  flex: 0 0 44px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--accent);
+  padding-top: 6px;
+}
+
+.project-body {
+  flex: 1 1 380px;
+  min-width: 0;
+}
+
+.project-title {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+}
+
+.project-desc {
+  font-size: 19px;
+  line-height: 1.58;
+  color: var(--body-secondary);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.project-desc + .project-repo {
+  margin-top: 12px;
+}
+
+.project-repo {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  margin: 0;
+}
+
+.skills-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--meta);
+  margin: 72px 0 24px;
+}
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.skill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.skill-label {
+  flex: 0 0 130px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--skill-label);
+  padding-top: 5px;
+}
+
+.skill-chips {
+  flex: 1 1 320px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-chips span {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  padding: 5px 11px;
+  border: 1px solid var(--chip-border);
+  border-radius: 2px;
+  color: oklch(0.88 0.006 152);
+}
+
+/* About page */
+
+.about-lead {
+  max-width: 62ch;
+}
+
+.education {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.edu-entry {
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+
+.edu-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 20px;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.edu-title {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 500;
+  font-size: 19px;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.edu-date {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--meta);
+}
+
+.edu-school {
+  font-size: 17px;
+  font-style: italic;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.edu-desc {
+  font-size: 19px;
+  line-height: 1.58;
+  color: var(--body-secondary);
+  margin: 0;
+  max-width: 60ch;
+  text-wrap: pretty;
+}
+
+/* Contact page */
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 28px;
+  align-items: baseline;
+  padding: 22px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.contact-list > .contact-row:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.contact-label {
+  flex: 0 0 120px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--meta);
+}
+
+.contact-value {
+  flex: 1 1 260px;
+  font-size: 20px;
+}
+
+.contact-value.static {
+  color: oklch(0.82 0.006 152);
+}
+
+/* Responsive */
+
+@media (max-width: 860px) {
+  .shell {
+    flex-direction: column;
+  }
+
+  .rail {
+    position: static;
+    height: auto;
+    flex: 1 1 auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--rule);
+    padding: 34px 28px 26px;
+    gap: 26px;
+  }
+
+  .rail nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px 22px;
+    margin-top: 0;
+  }
+
+  .rail-contact {
+    margin-top: 0;
+  }
 }

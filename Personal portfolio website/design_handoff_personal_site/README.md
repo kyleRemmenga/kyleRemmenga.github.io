@@ -96,13 +96,15 @@ Prose blocks cap at `60–62ch`. Border radius is effectively zero everywhere ex
 
 Copy for every screen is in the bundled HTML — transcribe it exactly. Structure per page:
 
-**index.html — Home.** H1 "Kyle Remmenga", two intro paragraphs, then an eyebrow "Where I am now" and a three-row table-like list (Class VI Partners, Colorado School of Mines contract, M.S. Computer Science). Each row: `display: flex; flex-wrap: wrap; gap: 4px 20px; align-items: baseline; padding: 18px 0`, bottom rule; three cells — role (JetBrains Mono 15px, `flex: 1 1 240px`), organization (Newsreader 17px, `flex: 1 1 180px`, `oklch(0.70 0.008 152)`), year (JetBrains Mono 12px). The list has a top rule on the container.
+**index.html — Home.** H1 "Kyle Remmenga", two intro paragraphs, then an eyebrow "Where I am now" and a three-row table-like list (AI Engineer Intern / Class VI Partners; AI Engineer / Mines, Petroleum Engineering; M.S. Computer Science / Colorado School of Mines, 2025 — 2026). Each row: `display: flex; flex-wrap: wrap; gap: 4px 20px; align-items: baseline; padding: 18px 0`, bottom rule; three cells — role (JetBrains Mono 15px, `flex: 1 1 240px`), organization (Newsreader 17px, `flex: 1 1 180px`, `oklch(0.70 0.008 152)`), year (JetBrains Mono 12px). The list has a top rule on the container.
 
-**work.html — Work.** Five `<article>` entries in a flex column, `gap: 56px`. Each: a header row (h2 left, date range right, `justify-content: space-between`, 14px bottom padding, bottom rule), the italic employer/location line, then an unstyled `<ul>` (`list-style: none`) of bullets with `gap: 16px`, each bullet `padding-left: 20px; border-left: 1px solid oklch(0.30 0.010 152)` and a JetBrains Mono lead-in label above its sentence. Entries in order: AI Engineer Intern (Class VI Partners), AI Engineer Contractor (Mines), Graduate Assistant (Mines), Machine Learning Researcher (Colorado Mesa), Cyber Security Researcher (Colorado Mesa).
+**work.html — Work.** Five `<article>` entries in a flex column, `gap: 56px`. Each: a header row (h2 left, date range right, `justify-content: space-between`, 14px bottom padding, bottom rule), the italic employer/location line, then an unstyled `<ul>` (`list-style: none`) of bullets with `gap: 16px`, each bullet `padding-left: 20px; border-left: 1px solid oklch(0.30 0.010 152)` and a JetBrains Mono lead-in label above its sentence. Entries in order: AI Engineer Intern (Class VI Partners), AI Engineer (Mines, Department of Petroleum Engineering), Graduate Assistant (Mines, Department of Petroleum Engineering), Machine Learning Researcher (Colorado Mesa), Cyber Security Researcher (Colorado Mesa).
+
+The Class VI Partners entry carries one extra line under its italic employer line: "Subcontracted through Analytical Data Systems, May — August 2026" — JetBrains Mono 12px, `letter-spacing: 0.04em`, `oklch(0.58 0.010 152)`, `margin-top: -6px`. Both Mines entries name the Department of Petroleum Engineering in their italic employer line.
 
 **projects.html — Projects.** Four numbered rows, each `padding: 30px 0` with a top rule (last also bottom rule). Row is a flex with a 44px number cell (JetBrains Mono 12px, accent, `padding-top: 6px`) and a `flex: 1 1 380px` body. Order: 01 Stars Without Number character generator (has a repo link at JetBrains Mono 13px), 02 GPT from scratch, 03 Live parking availability, 04 Subset checksum. Below the list, 72px down, the "Technical Skills" eyebrow and four skill groups (Languages, ML / AI, Infrastructure, Tools) — each a flex row with a 130px label cell and a wrapping chip row, groups separated by `gap: 26px`.
 
-**about.html — About.** H1, three paragraphs, then the "Education" eyebrow and two entries (M.S. Mines, B.S. Colorado Mesa) in a flex column `gap: 34px`; each has a top rule, a header row (h2 / date range), the italic school line, and one descriptive sentence.
+**about.html — About.** H1, three paragraphs, then the "Education" eyebrow and two entries (M.S. Mines, B.S. Colorado Mesa) in a flex column `gap: 34px`; each has a top rule, a header row (h2 / date range), the italic school line, and one descriptive sentence. The M.S. reads AUG 2025 — DEC 2026 and its sentence opens "Expected December 2026."; the B.S. reads 2022 — 2025.
 
 **contact.html — Contact.** H1, one line of intro, then a definition-style list of rows (`padding: 22px 0`, top rules, bottom rule on the last): Email, GitHub, LinkedIn, Located. Each row has a 120px JetBrains Mono 11px uppercase label (`letter-spacing: 0.12em`) and a 20px value.
 
@@ -127,7 +129,7 @@ No images. Fonts come from Google Fonts via `<link>` with `preconnect` to `fonts
 
 ## Content sources
 
-- Work history, education, and projects 02–04 come from Kyle's resume (already transcribed into the prototype verbatim).
+- Work history, education, and projects 02–04 come from Kyle's resume (already transcribed into the prototype verbatim), reconciled against his LinkedIn profile with him directly. Where the two sources disagreed, the prototype holds the settled version — use it, not the resume PDF.
 - Project 01 is summarized from `github.com/kyleRemmenga/swn_character_generator`.
 - Intro and about copy was written and revised in the design process; treat it as final.
 
