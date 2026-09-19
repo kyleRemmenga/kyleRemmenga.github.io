@@ -14,11 +14,7 @@ Delete these instructions when you are done, or leave them. It does not matter.
 What you wanted at the start, and what is actually live now.
 Name one thing you dropped or added along the way, and why.
 
-I set out to build a site that holds personal information about me — work history,
-projects, education, how to reach me — not a pitch. What's live now matches that:
-a plain five-page site (Home, Work, Projects, About, Contact) with no marketing
-language and no calls to action. The clearest thing I dropped, deliberately, was
-any framing of myself as available for hire or contract work — see question 3.
+I wanted a site that just holds my information. Work history, projects, education, and a way to get in touch. Not a pitch. That is pretty much what is live now, five pages (Home, Work, Projects, About, Contact) with no marketing language or calls to action anywhere on them. The thing I dropped was any wording that made it sound like I was advertising myself for hire or for contract work, which I get into more in question 3.
 
 ---
 
@@ -32,18 +28,7 @@ Say which you picked, what the alternative was, and what you gave up by not taki
 
 "There was no alternative" is not an answer. Find the fork.
 
-The design handoff came from a prototype built in a component runtime — a
-single JS-driven page with a page switcher rather than real navigation. I could
-have kept that structure and shipped one HTML file with JavaScript swapping the
-visible section, or converted it into a real static multi-page site: separate
-`index.html`, `work.html`, `projects.html`, `about.html`, and `contact.html`,
-linked with ordinary `<a href>` navigation and no JS at all. I picked the
-static multi-page version. The JS approach would have been closer to a
-1:1 port of the prototype and slightly less work up front, but it meant the
-site depended on JavaScript to be navigable at all, and it doesn't match what
-GitHub Pages is actually good at serving. Going static costs a small amount of
-duplication across the five files (the rail markup is repeated in each) but
-means every page works with JS off, has its own URL, and needed no build step.
+The design I started from was a prototype built in a component runtime, so it was really one JS driven page with a switcher on it instead of actual navigation. I could have kept that and shipped a single HTML file with JavaScript hiding and showing whichever section you clicked, or I could split it into a real static site with a separate file for each page and normal links between them. I went with the static files. Keeping the JS would have been closer to a straight port of the prototype and probably a bit less work up front, but then the site needs JavaScript running just to get from one page to another, and that is not really what GitHub Pages is good at anyway. The tradeoff is that the left rail markup is copied into all five files, so changing the nav means changing it in five places. What I get for that is every page having its own URL and still working with JS turned off. No build step either.
 
 ---
 
@@ -70,17 +55,9 @@ A check that could not have failed is not a check.
 
 Link to your `verification/` folder.
 
-I fetched the live URL directly with `curl -sv https://kyleremmenga.github.io/`
-and confirmed a `200` response with the actual page HTML in the body, not just
-a browser telling me it looked fine. I also took a browser screenshot of the
-live URL with the address bar visible. Both are in [`verification/`](verification/):
-`fetch.txt` (the raw curl output) and `screenshot.png`.
+I hit the live URL with `curl -sv https://kyleremmenga.github.io/` and got a 200 back with the actual page HTML in the body. I used curl instead of just opening it in a browser so that I was looking at the real response and not at something a browser had already cached and rendered for me. I did also take a screenshot of the live site with the address bar showing. Both of those are in the [verification](verification/) folder, fetch.txt is the curl output and screenshot.png is the screenshot.
 
-What would have made this fail: if the repo had been named anything other than
-`kyleremmenga.github.io`, or if `index.html` had ended up nested in a subfolder
-instead of the repo root, the fetch would have come back with a 404 instead of
-the page — that's a check that could actually catch a real mistake, not one
-that was guaranteed to pass.
+This one could have failed. If I had named the repo anything other than kyleremmenga.github.io, or if index.html had ended up sitting in a subfolder instead of at the root of the repo, the fetch would have come back 404 and I would have known something was wrong.
 
 ---
 
@@ -91,11 +68,4 @@ fully understand.
 
 What would you do next, and how would you find out?
 
-The site has a single responsive breakpoint at 860px — below it, the left rail
-is supposed to collapse from a sticky sidebar into a static header with the
-nav running horizontally. I wrote that CSS against the spec, but I haven't
-actually opened the site on a phone or narrowed a browser window to check it.
-I don't know if the nav wraps cleanly, whether the touch targets are big
-enough, or whether anything overlaps at in-between widths. Next step is to
-open the live site on my phone and in a resized desktop browser and see
-where it breaks, then fix whatever doesn't hold up.
+There is one breakpoint in the CSS at 860px, and under that width the left rail is supposed to stop being a sticky sidebar and become a header with the nav running across the top. I wrote that CSS off the spec and then never checked it. I have not opened the site on a phone or dragged a browser window down to see what happens. So I do not know if the nav wraps the way I think it does, or if the links are big enough to actually tap, or if things overlap at the widths in between. To find out I would pull the live site up on my phone and resize a desktop window until something breaks, then go fix whatever broke.
