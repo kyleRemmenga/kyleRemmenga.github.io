@@ -441,6 +441,32 @@ main {
 
 /* About page */
 
+.about-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.about-head-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.about-head-text > p:last-child {
+  margin-bottom: 0;
+}
+
+.portrait {
+  flex: 0 0 auto;
+  display: block;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid var(--rule);
+}
+
 .about-lead {
   max-width: 62ch;
 }
@@ -536,6 +562,17 @@ main {
 }
 
 /* Responsive */
+
+@media (max-width: 600px) {
+  .about-head {
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .about-head .portrait {
+    order: -1;
+  }
+}
 
 @media (max-width: 860px) {
   .shell {
