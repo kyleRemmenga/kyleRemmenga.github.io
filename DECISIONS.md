@@ -14,7 +14,7 @@ Delete these instructions when you are done, or leave them. It does not matter.
 What you wanted at the start, and what is actually live now.
 Name one thing you dropped or added along the way, and why.
 
-I wanted a site that just holds my information. Work history, projects, education, and a way to get in touch. Not a pitch. That is pretty much what is live now, five pages (Home, Work, Projects, About, Contact) with no marketing language or calls to action anywhere on them. The thing I dropped was any wording that made it sound like I was advertising myself for hire or for contract work, which I get into more in question 3.
+I wanted a site that holds my information. Work history, projects, education, and a way to get in touch. That is what is live now, five pages (Home, Work, Projects, About, Contact) with no marketing language or calls to action anywhere on them. The thing I dropped was any wording that made it sound like I was advertising myself for hire or for contract work, which I get into more in question 3.
 
 ---
 
@@ -28,7 +28,7 @@ Say which you picked, what the alternative was, and what you gave up by not taki
 
 "There was no alternative" is not an answer. Find the fork.
 
-The design I started from was a prototype built in a component runtime, so it was really one JS driven page with a switcher on it instead of actual navigation. I could have kept that and shipped a single HTML file with JavaScript hiding and showing whichever section you clicked, or I could split it into a real static site with a separate file for each page and normal links between them. I went with the static files. Keeping the JS would have been closer to a straight port of the prototype and probably a bit less work up front, but then the site needs JavaScript running just to get from one page to another, and that is not really what GitHub Pages is good at anyway. The tradeoff is that the left rail markup is copied into all five files, so changing the nav means changing it in five places. What I get for that is every page having its own URL and still working with JS turned off. No build step either.
+The design I started from was a prototype built in a component runtime, so it was really one JS driven page with a switcher on it instead of actual navigation. I could have kept that and shipped a single HTML file with JavaScript hiding and showing whichever section you clicked, or I could split it into a real static site with a separate file for each page and normal links between them. I went with the static files. Keeping the JS would have been closer to a straight port of the prototype and probably a bit less work up front, but then the site needs JavaScript running just to get from one page to another, and that is not really what GitHub Pages is good at anyway. The tradeoff is that the left rail markup is copied into all five files, so changing the nav means changing it in five places. What I get for that is every page having its own URL and still working with JS turned off.
 
 ---
 
